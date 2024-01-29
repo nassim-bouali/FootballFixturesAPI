@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Football Match Details Form</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    {% if matches|length < 1 %}
+        <h3 style="text-align: center">No football matches found. Create one below!</h3>
+    {% else %}
+        <h1 style="text-align: center">Football Match Details</h1>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Competition</th>
+                <th>Home</th>
+                <th>Score</th>
+                <th>Away</th>
+                <th>Stadium</th>
+                <th>Action</th>
+            </tr>
+            {% for processed_match in matches %}
+            <tr>
+                    <td>{{ processed_match.match.kickOffDatetime }}</td>
+                    <td>{{ processed_match.match.competition }}</td>
+                    <td>{{ processed_match.home_team_stats.teamName }}</td>
+                    <td>{{ processed_match.home_team_stats.goalsScored }} - {{ processed_match.away_team_stats.goalsScored }}</td>
+                    <td>{{ processed_match.away_team_stats.teamName }}</td>
+                    <td>{{ processed_match.match.stadium }}</td>
+                    <td>
+                        <a href="/update/{{ processed_match.match.id }}">Update</a>
+                        <a href="/delete/{{ processed_match.match.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <form action="/" method="POST">
+        <h1 style="text-align: center">Submit Match</h1>
+        <div class="fieldsets">
+            <fieldset>
+                <legend>Match Details</legend>
+
+                <label for="competition">Competition:</label>
+                <input type="text" id="competition" name="competition" required>
+
+                <br>
+
+                <label for="stadium">Stadium:</label>
+                <input type="text" id="stadium" name="stadium" required>
+
+                <br>
+
+                <label for="kickOffDatetime">Kick Off:</label>
+                <input type="datetime-local" id="kickOffDatetime" name="kickOffDatetime" required>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Home Team</legend>
+
+                <label for="homeTeam">Team Name:</label>
+                <input type="text" id="homeTeam" name="homeTeam" required>
+
+                <br>
+
+                <label for="homeGoals">Goals:</label>
+                <input type="number" id="homeGoals" name="homeGoals" required>
+
+                <br>
+
+                <label for="homeShots">Shots:</label>
+                <input type="number" id="homeShots" name="homeShots" required>
+
+                <br>
+
+                <label for="homePossession">Possession:</label>
+                <input type="number" id="homePossession" name="homePossession" required>
+
+                <br>
+
+                <label for="homePasses">Passes:</label>
+                <input type="number" id="homePasses" name="homePasses" required>
+
+                <br>
+
+                <label for="homeDribbles">Dribbles:</label>
+                <input type="number" id="homeDribbles" name="homeDribbles" required>
+
+                <br>
+
+                <label for="homeTackles">Tackles:</label>
+                <input type="number" id="homeTackles" name="homeTackles" required>
+
+                <br>
+
+                <label for="homeCorners">Corners:</label>
+                <input type="number" id="homeCorners" name="homeCorners" required>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Away Team</legend>
+
+                <label for="awayTeam">Team Name:</label>
+                <input type="text" id="awayTeam" name="awayTeam" required>
+
+                <br>
+
+                <label for="awayGoals">Goals:</label>
+                <input type="number" id="awayGoals" name="awayGoals" required>
+
+                <br>
+
+                <label for="awayShots">Shots:</label>
+                <input type="number" id="awayShots" name="awayShots" required>
+
+                <br>
+
+                <label for="awayPossession">Possession:</label>
+                <input type="number" id="awayPossession" name="awayPossession" required>
+
+                <br>
+
+                <label for="awayPasses">Passes:</label>
+                <input type="number" id="awayPasses" name="awayPasses" required>
+
+                <br>
+
+                <label for="awayDribbles">Dribbles:</label>
+                <input type="number" id="awayDribbles" name="awayDribbles" required>
+
+                <br>
+
+                <label for="awayTackles">Tackles:</label>
+                <input type="number" id="awayTackles" name="awayTackles" required>
+
+                <br>
+
+                <label for="awayCorners">Corners:</label>
+                <input type="number" id="awayCorners" name="awayCorners" required>
+
+            </fieldset>
+        </div>
+        <input type="submit" value="Add Match">
+    </form>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+form {
+    margin-top: 40px;
+}
+
+fieldset {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+legend {
+    font-weight: bold;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.content {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.fieldsets {
+    display: flex;
+    justify-content: space-between;
+}

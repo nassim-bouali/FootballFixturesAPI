@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Football Match Update Form</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <form action="/update/{{ match_to_update.match_details.id }}" method="POST">
+        <h1 style="text-align: center">Update Match</h1>
+        <div class="fieldsets">
+            <fieldset>
+                <legend>Match Details</legend>
+
+                <label for="competition">Competition:</label>
+                <input type="text" id="competition" name="competition" value="{{ match_to_update.match_details.competition }}" required>
+
+                <br>
+
+                <label for="stadium">Stadium:</label>
+                <input type="text" id="stadium" name="stadium" value="{{ match_to_update.match_details.stadium }}" required>
+
+                <br>
+
+                <label for="kickOffDatetime">Kick Off:</label>
+                <input type="datetime-local" id="kickOffDatetime" name="kickOffDatetime" value="{{ match_to_update.match_details.kickOffDatetime }}" required>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Home Team</legend>
+
+                <label for="homeTeam">Team Name:</label>
+                <input type="text" id="homeTeam" name="homeTeam" value="{{ match_to_update.home_team_stats.teamName }}" required>
+
+                <br>
+
+                <label for="homeGoals">Goals:</label>
+                <input type="number" id="homeGoals" name="homeGoals" value="{{ match_to_update.home_team_stats.goalsScored }}" required>
+
+                <br>
+
+                <label for="homeShots">Shots:</label>
+                <input type="number" id="homeShots" name="homeShots" value="{{ match_to_update.home_team_stats.shots }}" required>
+
+                <br>
+
+                <label for="homePossession">Possession:</label>
+                <input type="number" id="homePossession" name="homePossession" value="{{ match_to_update.home_team_stats.possession }}" required>
+
+                <br>
+
+                <label for="homePasses">Passes:</label>
+                <input type="number" id="homePasses" name="homePasses" value="{{ match_to_update.home_team_stats.passes }}" required>
+
+                <br>
+
+                <label for="homeDribbles">Dribbles:</label>
+                <input type="number" id="homeDribbles" name="homeDribbles" value="{{ match_to_update.home_team_stats.dribbles }}" required>
+
+                <br>
+
+                <label for="homeTackles">Tackles:</label>
+                <input type="number" id="homeTackles" name="homeTackles" value="{{ match_to_update.home_team_stats.tackles }}" required>
+
+                <br>
+
+                <label for="homeCorners">Corners:</label>
+                <input type="number" id="homeCorners" name="homeCorners" value="{{ match_to_update.home_team_stats.corners }}" required>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Away Team</legend>
+
+                <label for="awayTeam">Team Name:</label>
+                <input type="text" id="awayTeam" name="awayTeam" value="{{ match_to_update.away_team_stats.teamName }}" required>
+
+                <br>
+
+                <label for="awayGoals">Goals:</label>
+                <input type="number" id="awayGoals" name="awayGoals" value="{{ match_to_update.away_team_stats.goalsScored }}" required>
+
+                <br>
+
+                <label for="awayShots">Shots:</label>
+                <input type="number" id="awayShots" name="awayShots" value="{{ match_to_update.away_team_stats.shots }}" required>
+
+                <br>
+
+                <label for="awayPossession">Possession:</label>
+                <input type="number" id="awayPossession" name="awayPossession" value="{{ match_to_update.away_team_stats.possession }}" required>
+
+                <br>
+
+                <label for="awayPasses">Passes:</label>
+                <input type="number" id="awayPasses" name="awayPasses" value="{{ match_to_update.away_team_stats.passes }}" required>
+
+                <br>
+
+                <label for="awayDribbles">Dribbles:</label>
+                <input type="number" id="awayDribbles" name="awayDribbles" value="{{ match_to_update.away_team_stats.dribbles }}" required>
+
+                <br>
+
+                <label for="awayTackles">Tackles:</label>
+                <input type="number" id="awayTackles" name="awayTackles" value="{{ match_to_update.away_team_stats.tackles }}" required>
+
+                <br>
+
+                <label for="awayCorners">Corners:</label>
+                <input type="number" id="awayCorners" name="awayCorners" value="{{ match_to_update.away_team_stats.corners }}" required>
+
+            </fieldset>
+        </div>
+        <input type="submit" value="Update Match">
+    </form>
+</div>
+{% endblock %}
